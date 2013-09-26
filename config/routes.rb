@@ -1,4 +1,6 @@
 Jobapp::Application.routes.draw do
+  devise_for :accounts
+  devise_for :admins
   devise_for :users
   resources :users, only: [:index, :show]
   root to: "static_pages#welcome"
