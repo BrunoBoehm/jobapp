@@ -1,0 +1,18 @@
+<h1>Your Account</h1>
+<div class="row">
+	<div class="span4">
+	<% if @company.any? %>
+		<span class="badge badge-info"><%= pluralize(@company.count, 'company') %></span>
+		<ul>
+			<% @company.each do |company| %>
+			<li><%= link_to company.name, company_path(company)  %>, <small><%= link_to "Edit", edit_company_path(company)  %></small></li>
+			<% end %>
+		</ul>
+	<% end %>
+	</div>
+
+	<div class="span8">
+	Your current registered email is : <%= @account.email %>
+	<%= link_to "| Edit", edit_account_registration_path %>
+	</div>
+</div>

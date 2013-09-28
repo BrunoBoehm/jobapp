@@ -1,6 +1,12 @@
 Jobapp::Application.routes.draw do
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :accounts
   devise_for :users
+
+  resources :companies
+  resources :accounts, only: [:show]
   resources :users, only: [:index, :show]
   root to: "static_pages#welcome"
   match '/pro_access' => 'static_pages#pro', :as => 'pro_access', via: 'get'

@@ -1,14 +1,22 @@
 <% provide(:title, 'Home') %>
 
-<div class="center hero-unit">
+<% if account_signed_in? %>
+	<div class="row">
+	<div class="span6 offset3">
+		<% @companies.each do |company| %>
+			<h4><%= company.name %></h4>
+			<p><%= company.teaser %></p>
+		<% end %>
+	</div>
+	</div>	
+<% else %>
+	<div class="center hero-unit">
+		<h1>Welcome to JobParadize.com</h1>
+		<p>We are working hard to bring you the best jobs in the best cities around </p>
+		<p>- in a way you've never seen before.</p>
+		<p>Want to receive updates, or even test before official launch ?</p>
 
-<h1>Welcome to JobParadize.com</h1>
-<p>We are working hard to bring you the best jobs in the best cities around </p>
-<p>- in a way you've never seen before.</p>
-<p>Want to receive updates, or even test before official launch ?</p>
+		<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+	</div>
+<% end %>
 
-<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
-
-
-
-</div>
