@@ -1,2 +1,26 @@
 <h1><%= @company.name %></h1>
-<%= @company.teaser %>
+
+<h3>Introduction to <%= @company.name %> <small><%= link_to "Edit", edit_company_path(@company)  %></small></h3>
+	<p><%= @company.teaser %></p>
+
+<h3>Mission Statement & Impact <small><%= link_to "Edit", edit_mission_path(@mission)  %></small></h3>
+<% if @company.mission.nil? %>
+	<div class="alert alert-info"><%= link_to "Write about your mission and impact", edit_mission_path(@company) %> to tell candidates about what sets you apart !</div>
+<% else %>
+	<p><%= @company.mission.statement %></p>
+	<p><%= @company.mission.impact %></p>
+<% end %>
+
+<h3>3 Reasons you should join us <small><%= link_to "Edit", edit_company_reason_path(@company, @reason)  %></small></h3>
+	<p><%= @company.reason.why1 %></p>
+	<p><%= @company.reason.why2 %></p>
+	<p><%= @company.reason.why3 %></p>
+
+<% unless @company.address.nil? %>
+<h3>Location of <%= @company.name %> <small><%= link_to "Edit", edit_company_path(@company)  %></small></h3>
+	<p>
+	<%= @company.address.street.titleize %>, <%= @company.address.city.titleize %> (<%= @company.address.zip %>), <%= @company.address.country.titleize %>.
+	</p>
+<% end %>
+
+<br><%= link_to "Delete your company", @company, method: :delete, data: {confirm: "Are you sure ?"}, title: @company.teaser %>

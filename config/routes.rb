@@ -5,7 +5,10 @@ Jobapp::Application.routes.draw do
   devise_for :accounts
   devise_for :users
 
-  resources :companies
+  resources :companies do
+    resources :reasons,  only: [:edit, :update] 
+  end
+  resources :missions, only: [:edit, :update] 
   resources :accounts, only: [:show]
   resources :users, only: [:index, :show]
   root to: "static_pages#welcome"

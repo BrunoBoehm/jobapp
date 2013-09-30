@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927212935) do
+ActiveRecord::Schema.define(version: 20130929174116) do
 
   create_table "accounts", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(version: 20130927212935) do
     t.string   "street"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "zip"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
   end
 
   create_table "admin_users", force: true do |t|
@@ -80,6 +83,23 @@ ActiveRecord::Schema.define(version: 20130927212935) do
   create_table "companies", force: true do |t|
     t.string   "name"
     t.text     "teaser"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "missions", force: true do |t|
+    t.string   "statement"
+    t.string   "impact"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reasons", force: true do |t|
+    t.string   "why1"
+    t.string   "why2"
+    t.string   "why3"
+    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

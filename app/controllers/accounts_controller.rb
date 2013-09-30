@@ -3,5 +3,6 @@ class AccountsController < ApplicationController
 	def show
 		@account = Account.find(params[:id])
 		@company = @account.companies.to_a
+		#.to_a has replaced deprecated .all
 	end
 end

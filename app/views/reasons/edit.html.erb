@@ -1,0 +1,21 @@
+<h1>Edit your Reasons</h1>
+
+<div class="row">
+<div class="span6 offset3">
+
+<%= form_for([@company, @reason]) do |f| %>
+
+  <%= f.label :why1, "First reason why a candidate should join your company :" %>
+  <%= f.text_area :why1, :autofocus => true %>
+
+  <%= f.label :why2, "Second reason :" %>
+  <%= f.text_area :why2 %>
+
+  <%= f.label :why3, "Last (but not least) reason :" %>
+  <%= f.text_area :why3 %>
+
+  <%= f.submit "Update 3 Reasons", class: "btn btn-large btn-primary" %>
+<% end %>
+
+</div>
+</div>

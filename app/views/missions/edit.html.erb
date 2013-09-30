@@ -1,0 +1,18 @@
+<h1>Edit your Mission</h1>
+
+<div class="row">
+<div class="span6 offset3">
+
+<%= form_for(@mission) do |f| %>
+
+  <%= f.label :statement, "Your Mission Statement :" %>
+  <%= f.text_area :statement, :autofocus => true %>
+
+  <%= f.label :impact, "The Impact of your Company :" %>
+  <%= f.text_area :impact %>
+
+  <%= f.submit "Update Mission", class: "btn btn-large btn-primary" %>
+<% end %>
+
+</div>
+</div>

@@ -11,6 +11,10 @@
   <%= f.label :teaser %>
   <%= f.text_area :teaser %>
 
+  <%= f.fields_for :address do |address| %>
+  	<%= render 'shared/address', f: address %>
+  <% end %>  
+
   <%= f.submit "Update", class: "btn btn-large btn-primary" %>
 <% end %>
 
