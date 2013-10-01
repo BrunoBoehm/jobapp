@@ -23,4 +23,10 @@
 	</p>
 <% end %>
 
+<%= gmaps({
+  "map_options" => {"auto_zoom" => false, "zoom" => 14 },
+  "markers"     => {"data" => @json }
+ })
+%>
+
 <br><%= link_to "Delete your company", @company, method: :delete, data: {confirm: "Are you sure ?"}, title: @company.teaser %>

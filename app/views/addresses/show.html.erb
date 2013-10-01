@@ -1,0 +1,5 @@
+<h1><%= @address.city.titleize %>, <%= @address.country.titleize %></h1>
+
+	<%= @address.street.titleize %>
+
+<br><%= link_to "Delete address", @address, method: :delete, data: {confirm: "Are you sure ?"}, title: @address %>

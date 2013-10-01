@@ -8,6 +8,7 @@ Jobapp::Application.routes.draw do
   resources :companies do
     resources :reasons,  only: [:edit, :update] 
   end
+  resources :addresses
   resources :missions, only: [:edit, :update] 
   resources :accounts, only: [:show]
   resources :users, only: [:index, :show]

@@ -26,6 +26,7 @@ class CompaniesController < ApplicationController
 		@company = current_account.companies.find(params[:id])
 		@mission = @company.mission
 		@reason  = @company.reason
+		@json = @company.address.to_gmaps4rails
 	end
 
 	def edit
@@ -61,4 +62,6 @@ class CompaniesController < ApplicationController
 	  	#we use find_by instead of find because the latter raises an exception when the micropost doesn’t exist instead of returning nil
 	  	#is there inside current_account.companies on with the ID of the params ? if yes ok, if nil then redirect
 	  end  
+
+
 end

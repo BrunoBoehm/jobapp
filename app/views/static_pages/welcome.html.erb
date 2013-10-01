@@ -9,6 +9,11 @@
 		<% end %>
 	</div>
 	</div>	
+	<%= gmaps({
+	  "map_options" => {"auto_zoom" => false, "zoom" => 2 },
+	  "markers"     => {"data" => @map }
+	 })
+	%>
 <% else %>
 	<div class="center hero-unit">
 		<h1>Welcome to JobParadize.com</h1>
