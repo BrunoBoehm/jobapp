@@ -6,14 +6,16 @@ Jobapp::Application.routes.draw do
   devise_for :users
 
   resources :companies do
-    resources :reasons,  only: [:edit, :update] 
+    resources :reasons,  only: [:edit, :update]
   end
+  
   resources :addresses
   resources :missions, only: [:edit, :update] 
   resources :accounts, only: [:show]
   resources :users, only: [:index, :show]
   root to: "static_pages#welcome"
   match '/pro_access' => 'static_pages#pro', :as => 'pro_access', via: 'get'
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

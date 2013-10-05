@@ -1,4 +1,4 @@
-<h1><%= @company.name %></h1>
+<%= image_tag @company.logo.url %><h1><%= @company.name %></h1>
 
 <h3>Introduction to <%= @company.name %> <small><%= link_to "Edit", edit_company_path(@company)  %></small></h3>
 	<p><%= @company.teaser %></p>
@@ -23,6 +23,8 @@
 	</p>
 <% end %>
 
+<br><%= link_to "Upload images to your galery", uploads_index_path(@company) %>
+<br>
 <%= gmaps({
   "map_options" => {"auto_zoom" => false, "zoom" => 14 },
   "markers"     => {"data" => @json }

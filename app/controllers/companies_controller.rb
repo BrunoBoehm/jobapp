@@ -52,7 +52,7 @@ class CompaniesController < ApplicationController
 	private
 
 	  def company_params
-	    params.require(:company).permit(:name, :teaser, address_attributes: [:country, :city, :zip, :street])
+	    params.require(:company).permit(:name, :teaser, :logo, address_attributes: [:country, :city, :zip, :street])
 	    #integrates the nested attributes for address that are posted when company gets posted.
 	  end
 
