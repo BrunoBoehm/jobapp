@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131005093152) do
+ActiveRecord::Schema.define(version: 20131007154241) do
 
   create_table "accounts", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -112,6 +112,18 @@ ActiveRecord::Schema.define(version: 20131005093152) do
     t.datetime "logo_updated_at"
   end
 
+  create_table "headers", force: true do |t|
+    t.string   "title"
+    t.text     "caption"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "missions", force: true do |t|
     t.string   "statement"
     t.string   "impact"
@@ -127,6 +139,18 @@ ActiveRecord::Schema.define(version: 20131005093152) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "uploads", force: true do |t|
+    t.string   "title"
+    t.text     "caption"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "company_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", force: true do |t|

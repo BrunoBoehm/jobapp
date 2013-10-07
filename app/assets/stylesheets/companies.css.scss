@@ -1,3 +1,163 @@
 // Place all the styles related to the companies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.container-fluid {
+	background-image: url(image-path("diamond-pattern.jpg"));
+}
+
+.row-fluid {
+	padding-top: 20px;
+}
+
+.box-complete {
+	margin: 10px 0 20px 0;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px; 
+	border: 1px solid #ccc;
+	background-color: white;
+}
+
+/* 	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+	-ms-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+	-o-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); 
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+*/
+
+.box-head {
+	margin-top: 10px;
+	text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+	background-image: url(image-path("jumbotron-pattern.png")), linear-gradient(45deg, #020031 0%,#6d3353 100%);
+	color:white;
+	padding: 20px 0;
+	text-align: center;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border: 1px solid #ccc;
+	border-bottom: none;  	
+}
+
+.box-main {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border: 1px solid #ccc;
+	border-top: none;
+	padding: 10px 10px;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.box-complete p {
+	padding: 0 10px;
+	font-size: 1em;
+	line-height: 1.4em;
+	text-align: justify;
+}
+
+.box-complete h1 {
+	margin-bottom: 10px;
+}
+
+.span3 .box-complete h1 {
+	font-weight: 200;
+	text-align: left;
+	font-size: 1.4em;
+	letter-spacing: 0px;
+	padding: 0 10px;
+}
+
+.box-complete h2 {
+	font-weight: 200;
+	margin-top: 5px;
+}
+
+.edit-button {
+	font-size: 12px;
+}
+
+.edit-button a:hover {
+	color: #0088cc;
+}
+
+.album img {
+	width:30%;
+	height:auto;
+	border: 1px solid #ccc;
+}
+
+.soften {
+	height: 1px;
+	margin: 0 0 10px 0;
+	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	border: 0;
+}
+
+.footer {
+	-webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+	-moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+	box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+	height:200px;
+	padding-top: 20px;
+	margin-top: 0;
+}
+
+
+
+/* Carousel */
+.carousel {
+	margin-bottom: 0;
+	-webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+	-moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+	box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+}
+
+.carousel-caption {
+	background-color: transparent;
+	left: 120px;
+	top: 150px;
+	position: absolute;
+}
+
+.carousel-caption h1, .carousel-caption .lead {
+	margin: 0;
+	line-height: 1.25;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,.4);
+	text-align: left;
+	max-width: 800px;
+}
+
+.carousel-caption h1 {
+	font-size: 5em;
+}
+
+.carousel-control {
+	background: none;
+	border: none;
+	-webkit-border-radius: none;
+	-moz-border-radius: none;
+	border-radius: none;
+	font-size: 120px;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+	display: block;
+	line-height: 1;
+	margin: 0 auto;
+	min-width: 100%;
+	height:auto;
+}
+

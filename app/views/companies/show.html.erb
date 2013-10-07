@@ -1,34 +1,109 @@
-<%= image_tag @company.logo.url %><h1><%= @company.name %></h1>
+<div id="company-carousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#company-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#company-carousel" data-slide-to="1"></li>
+  </ol>
 
-<h3>Introduction to <%= @company.name %> <small><%= link_to "Edit", edit_company_path(@company)  %></small></h3>
-	<p><%= @company.teaser %></p>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
 
-<h3>Mission Statement & Impact <small><%= link_to "Edit", edit_mission_path(@mission)  %></small></h3>
-<% if @company.mission.nil? %>
-	<div class="alert alert-info"><%= link_to "Write about your mission and impact", edit_mission_path(@company) %> to tell candidates about what sets you apart !</div>
-<% else %>
-	<p><%= @company.mission.statement %></p>
-	<p><%= @company.mission.impact %></p>
-<% end %>
+    	<div class="item active">
+    	<%= image_tag @headers.first.image.url(:carousel) %>
+    	<div class="carousel-caption">
+			<h1><%= @headers.first.title %></h1>
+			<p class="lead"><%= @headers.first.caption %> <small class="edit-button"><%= link_to "Edit", company_headers_path(@company) %></small></p>
+		</div>
+    	</div>
 
-<h3>3 Reasons you should join us <small><%= link_to "Edit", edit_company_reason_path(@company, @reason)  %></small></h3>
-	<p><%= @company.reason.why1 %></p>
-	<p><%= @company.reason.why2 %></p>
-	<p><%= @company.reason.why3 %></p>
+    	<% @headers.drop(1).each do |header| %>
+	    	<div class="item">
+    		<%= image_tag header.image.url(:carousel) %>
+    		<div class="carousel-caption">
+    			<h1><%= header.title %></h1>
+    			<p class="lead"><%= header.caption %> <small class="edit-button"><%= link_to "Edit", company_headers_path(@company) %></small></p>
+			</div>
+    		</div>
+    	<% end %>
 
-<% unless @company.address.nil? %>
-<h3>Location of <%= @company.name %> <small><%= link_to "Edit", edit_company_path(@company)  %></small></h3>
-	<p>
-	<%= @company.address.street.titleize %>, <%= @company.address.city.titleize %> (<%= @company.address.zip %>), <%= @company.address.country.titleize %>.
-	</p>
-<% end %>
+    </div>
 
-<br><%= link_to "Upload images to your galery", uploads_index_path(@company) %>
-<br>
-<%= gmaps({
-  "map_options" => {"auto_zoom" => false, "zoom" => 14 },
-  "markers"     => {"data" => @json }
- })
-%>
+  <!-- Controls -->
+  <a class="left carousel-control" href="#company-carousel" data-slide="prev">
+    <span class="icon-prev">‹</span>
+  </a>
+  <a class="right carousel-control" href="#company-carousel" data-slide="next">
+    <span class="icon-next">›</span>
+  </a>
+</div>
 
-<br><%= link_to "Delete your company", @company, method: :delete, data: {confirm: "Are you sure ?"}, title: @company.teaser %>
+
+
+<div class="container-fluid">
+
+	<div class="container">
+		<% flash.each do |key, value| %>
+	    <div class="alert alert-<%= key %>"><%= value %></div>
+	  	<% end %>
+  	</div> 
+
+	<div class="row-fluid">	
+		<div class="span3 offset1">
+			<div class="box-complete">
+				<%= image_tag @company.logo.url %>
+				<hr class="soften">
+				<h1><%= @company.name %> is :</h1>
+				<p><%= @company.teaser %> <small class="edit-button"><%= link_to "Edit", edit_company_path(@company)  %></small></p>
+				<hr class="soften">
+				<%= gmaps({
+				  "map_options" => {"auto_zoom" => false, "zoom" => 14 },
+				  "markers"     => {"data" => @json }
+				 })
+				%>
+			</div>				
+		</div>	
+
+		<div class="span7">
+			<div class="box-head">
+				<h3>Mission Statement & Impact <small class="edit-button"><%= link_to "Edit", edit_mission_path(@mission)  %></small></h3>
+			</div>
+			<div class="box-main">	
+					<p><%= @company.mission.statement %></p>
+					<p><%= @company.mission.impact %></p>
+			</div>
+		
+
+			<div class="box-head">
+				<h3>3 Reasons you should join us <small class="edit-button"><%= link_to "Edit", edit_company_reason_path(@company, @reason)  %></small></h3>
+			</div>
+			<div class="box-main">	
+				<p><%= @company.reason.why1 %></p>
+				<p><%= @company.reason.why2 %></p>
+				<p><%= @company.reason.why3 %></p>
+			</div>
+
+			<div class="box-head">
+				<h3>Check out our pictures <small class="edit-button"><%= link_to "Edit", company_uploads_path(@company) %></small></h3>
+			</div>
+
+			<div class="box-main album">	
+				<% @company.uploads.each do |upload| %>
+					<%= image_tag upload.photo.url %>
+				<% end %>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container">
+		<br><%= link_to "Delete your company", @company, method: :delete, data: {confirm: "Are you sure ?"}, title: @company.teaser %>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$('.carousel').carousel({
+		  interval: 7000
+		});
+	});
+</script>

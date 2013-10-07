@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @upload.photo.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @upload.title %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @upload.caption %>
+</p>
+
+<%= link_to 'Edit', edit_company_upload_path(@company, @upload) %> |
+<%= link_to 'Back', company_uploads_path %>

@@ -14,14 +14,23 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+
+
 /* universal */
 
 html {
   overflow-y: scroll;
 }
 
+/* to get space under the header
 body {
   padding-top: 60px;
+}
+*/
+
+.navbar-inverse .navbar-inner {
+  opacity: 0.9;
+  filter: alpha(opacity=90); /* For IE8 and earlier */
 }
 
 section {
@@ -32,12 +41,14 @@ textarea {
   resize: vertical;
 }
 
+/*
 .center {
   text-align: center;
   h1 {
     margin-bottom: 10px;
   }
 }
+*/
 
 /* typography */
 
@@ -148,3 +159,6 @@ input {
   @include box_sizing;
 }
 
+.alert {
+  margin-top: 10px;
+}

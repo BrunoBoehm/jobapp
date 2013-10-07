@@ -1,5 +1,7 @@
 <% provide(:title, 'Home') %>
 
+
+
 <% if account_signed_in? %>
 	<div class="row">
 	<div class="span6 offset3">
@@ -15,13 +17,40 @@
 	 })
 	%>
 <% else %>
-	<div class="center hero-unit">
-		<h1>Welcome to JobParadize.com</h1>
-		<p>We are working hard to bring you the best jobs in the best cities around </p>
-		<p>- in a way you've never seen before.</p>
-		<p>Sign up for updates !</p>
+	<div class="jumbotron masthead">
+		<div class="container">
+			<h1>JobParadize.com</h1>
+			<p>The best jobs in the best cities around - in a way you've never seen before.</p>
+			<p>Launching soon, sign up for updates !</p>
+			<br>
+			<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+		</div>
+	</div>
 
-		<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+	<div class="container">
+		<div class="marketing">
+			<h1>Welcome to Job Paradize !</h1>
+			<p class="marketing-byline">Your dream job has never been that close...</p>
+		
+
+			<div class="row-fluid">
+				<div class="span4">
+					<%= image_tag "https://cdn1.iconfinder.com/data/icons/PRACTIKA/256/job_openings.png", class:"marketing-img" %>
+					<h2>Explore jobs in our cities</h2>
+					<p>We have selected the companies that offer the best experiences, in some of the most vibrant cities around.</p>
+				</div>
+				<div class="span4">
+					<%= image_tag "https://cdn1.iconfinder.com/data/icons/PRACTIKA/256/job_openings.png", class:"marketing-img" %>
+					<h2>Explore jobs in our cities</h2>
+					<p>We have selected the companies that offer the best experiences, in some of the most vibrant cities around.</p>
+				</div>
+				<div class="span4">
+					<%= image_tag "https://cdn1.iconfinder.com/data/icons/PRACTIKA/256/job_openings.png", class:"marketing-img" %>
+					<h2>Explore jobs in our cities</h2>
+					<p>We have selected the companies that offer the best experiences, in some of the most vibrant cities around.</p>
+				</div>
+			</div>
+		</div>
 	</div>
 <% end %>
 

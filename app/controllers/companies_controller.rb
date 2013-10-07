@@ -27,6 +27,7 @@ class CompaniesController < ApplicationController
 		@mission = @company.mission
 		@reason  = @company.reason
 		@json = @company.address.to_gmaps4rails
+		@headers = @company.headers.all
 	end
 
 	def edit

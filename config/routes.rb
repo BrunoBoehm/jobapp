@@ -1,5 +1,7 @@
 Jobapp::Application.routes.draw do
 
+  resources :headers
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :accounts
@@ -7,6 +9,8 @@ Jobapp::Application.routes.draw do
 
   resources :companies do
     resources :reasons,  only: [:edit, :update]
+    resources :uploads
+    resources :headers
   end
   
   resources :addresses

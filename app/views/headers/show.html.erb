@@ -1,0 +1,19 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @header.title %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @header.caption %>
+</p>
+
+<%= image_tag @header.image.url %>
+
+
+<%= link_to 'Edit', edit_company_header_path(@company, @header) %> |
+<%= link_to 'Back', company_headers_path %>
+</div>

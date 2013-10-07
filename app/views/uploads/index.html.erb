@@ -1,0 +1,29 @@
+<h1>Listing uploads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Caption</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @uploads.each do |upload| %>
+      <tr>
+        <td><%= upload.title %></td>
+        <td><%= upload.caption %></td>
+        <td><%= link_to 'Show', [@company, upload] %></td>
+        <td><%= link_to 'Edit', edit_company_upload_path(@company, upload) %></td>
+        <td><%= link_to 'Destroy', [@company, upload], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Upload', new_company_upload_path %>
